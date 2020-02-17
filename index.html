@@ -84,9 +84,22 @@
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"
       ></script>
+      <script>
+        window.alert(
+          "Click START to begin. Then press a key to guess a letter. Good Luck!"
+        );
+      </script>
 
       <script>
         var words = ["catfish", "salmon", "trout", "worms", "lures", "flies"];
+        var lives = 5;
+        var messages = {
+          win: "You Win!!!",
+          lose: "You Lose. Try Again. Good Luck!",
+          guessed: "You already guessed this letter.",
+          invalidLetter: "Not a valid guess."
+        };
+        var validLetter = "abcdefghijklmnopqrstuvwxyz";
         // 1. start the game
         $("#startBtn").on("click", start);
 
