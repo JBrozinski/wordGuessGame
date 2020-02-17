@@ -11,44 +11,134 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
+
     <title>Hangman</title>
   </head>
   <body>
-      <div class="w-auto p-3" style="background-color:black;">
-      
-    <div class="row">
+    <div class="">
+      <div class="row bg-dark">
         <div class="col">
-            <img src="assets/images/rainbowTrout.jfif" class="img-fluid" alt="rainbowTrout">
-        </div class="jumbo">
+          <img
+            src="assets/images/rainbowTrout.jfif"
+            class="img-fluid"
+            alt="rainbowTrout"
+          />
+        </div>
         <div class="col-5">
-            <div class="jumbotron jumbotron-fluid" >
-                <div class="container">
-                    <!-- <img src="assets/images/rainbowTrout.jfif" class="img-fluid" alt="rainbowTrout"> -->
-                  <h1 class="text-center" class="display-4"><u>HANGMAN</u></h1>
-                  <p class="text-center" id="subtitle" class="lead">Let's Go Fishing!!!</p>
-                </div>
-              </div>
+          <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+              <!-- <img src="assets/images/rainbowTrout.jfif" class="img-fluid" alt="rainbowTrout"> -->
+              <h1 class="text-center" class="display-4"><u>HANGMAN</u></h1>
+              <p class="text-center" id="subtitle" class="lead">
+                Let's Go Fishing!!!
+              </p>
+            </div>
+          </div>
         </div>
         <div class="col">
-            <img src="assets/images/rainbowTrout.jfif" class="img-fluid" alt="rainbowTrout">
+          <img
+            src="assets/images/rainbowTrout.jfif"
+            class="img-fluid"
+            alt="rainbowTrout"
+          />
         </div>
       </div>
-    
-  </div>
-</body>
+
+      <div class="container">
+        <div id="startScreen">
+          <h3>Start Game!</h3>
+          <hr />
+          <button id="startBtn">Start</button>
+        </div>
+
+        <div id="gameScreen">
+          <h3>Let's play a game!</h3>
+          <hr />
+          <div id="underscores">_ _ _ _ _</div>
+          <div>
+            Incorrect Guesses: [ <span id="letterssGuessed">a, b, c</span> ]
+          </div>
+          <div>Wins: <span id="wins">0</span></div>
+          <div>Losses: <span id="losses">0</span></div>
+        </div>
+      </div>
+
+      <!-- <div id="scheduleBox"></div> -->
+      <!-- <div>
+          <div class="time">9am</div>
+          <textarea name="" id="" cols="30" rows="10" class="schedule"></textarea>
+          <button class="submit">submit</button>
+        </div> -->
+      <script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"
+      ></script>
+
+      <script>
+        // for (var i = 0; i < 10; i++) {
+        //   var parent = document.createElement("div");
+        //   var time = document.createElement("div");
+        //   time.classList.add("time");
+        //   time.textContent = i
+        //   var textarea = document.createElement("textarea");
+        //   textarea.classList.add("schedule");
+        //   textarea.value = "Hello"
+        //   var button = document.createElement("button");
+        //   button.classList.add("submit");
+        //   parent.appendChild(time);
+        //   parent.appendChild(textarea);
+        //   parent.appendChild(button);
+        //   document.getElementById("scheduleBox").appendChild(parent);
+        // }
+
+        var words = ["catfish", "salmon", "trout", "worms", "lures" ];
+        // 1. start the game
+        $("#startBtn").on("click", start);
+
+        function start() {
+          console.log("Game start");
+          var randWord = mysteryWord(words);
+          makeUnderscores(randWord)
+          // 2. set up the game
+          // -- pick a word
+          // -- display underscores to screen
+        }
+        // var arr = whatever is passed here! (WORDS)
+        function mysteryWord(arr) {
+          return arr[Math.floor(Math.random() * arr.length)]
+        }
+        function makeUnderscores(word){
+          var temp = []
+          for(var i = 0; i < word.length; i++){
+            temp.push('_')
+          }
+          console.log(temp)
+          document.getElementById("underscores").innerHTML = (temp);
+        }
+        // 3. user interaction
+        // --grab user input from keyboard, run evaluation
+        $(document).on("keyup", keyDown);
+
+        function keyDown(event) {
+          console.log("Key Pressed", event);
+          // 4. process interaction
+        }
+
+        // 5. handle results
+        // 6. continue game
+        // 7. finish game, ask to start again
+      </script>
+    </div>
+  </body>
 </html>
