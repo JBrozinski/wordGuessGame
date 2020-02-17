@@ -54,7 +54,7 @@
         <div id="gameScreen">
           <h3>Let's play a game!</h3>
           <hr />
-          <div id="underscores">_ _ _ _ _</div>
+          <h3 id="underscores">? ? ? ? ?</h3>
           <div>
             Incorrect Guesses: [ <span id="letterssGuessed">a, b, c</span> ]
           </div>
@@ -86,45 +86,29 @@
       ></script>
 
       <script>
-        // for (var i = 0; i < 10; i++) {
-        //   var parent = document.createElement("div");
-        //   var time = document.createElement("div");
-        //   time.classList.add("time");
-        //   time.textContent = i
-        //   var textarea = document.createElement("textarea");
-        //   textarea.classList.add("schedule");
-        //   textarea.value = "Hello"
-        //   var button = document.createElement("button");
-        //   button.classList.add("submit");
-        //   parent.appendChild(time);
-        //   parent.appendChild(textarea);
-        //   parent.appendChild(button);
-        //   document.getElementById("scheduleBox").appendChild(parent);
-        // }
-
-        var words = ["catfish", "salmon", "trout", "worms", "lures" ];
+        var words = ["catfish", "salmon", "trout", "worms", "lures", "flies"];
         // 1. start the game
         $("#startBtn").on("click", start);
 
         function start() {
           console.log("Game start");
           var randWord = mysteryWord(words);
-          makeUnderscores(randWord)
+          makeUnderscores(randWord);
           // 2. set up the game
           // -- pick a word
           // -- display underscores to screen
         }
         // var arr = whatever is passed here! (WORDS)
         function mysteryWord(arr) {
-          return arr[Math.floor(Math.random() * arr.length)]
+          return arr[Math.floor(Math.random() * arr.length)];
         }
-        function makeUnderscores(word){
-          var temp = []
-          for(var i = 0; i < word.length; i++){
-            temp.push('_')
+        function makeUnderscores(word) {
+          var temp = [];
+          for (var i = 0; i < word.length; i++) {
+            temp.push("_");
           }
-          console.log(temp)
-          document.getElementById("underscores").innerHTML = (temp);
+          console.log(temp);
+          document.getElementById("underscores").innerHTML = temp;
         }
         // 3. user interaction
         // --grab user input from keyboard, run evaluation
