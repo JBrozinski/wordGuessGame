@@ -60,9 +60,9 @@
           </div>
           <div class="guessesRemaining">
             You have
-            <script>
+            <span>
               lives.innerHTML;
-            </script>
+            </span>
             guesses left!
           </div>
           <div>Wins: <span id="wins">0</span></div>
@@ -99,7 +99,7 @@
       </script>
 
       <script>
-        var words = ["catfish", "salmon", "trout", "worms", "lures", "flies"];
+        var words = ["catfish", "salmon", "trout", "worms", "lures", "flies", "stream", "lake"];
         var lives = 5;
         var messages = {
           win: "You Win!!!",
@@ -137,12 +137,12 @@
 
         // 3. user interaction
         // --grab user input from keyboard, run evaluation
-        document.onkeyup = function(event) {
-          userText.textContent = event.key;
-        };
+        
+       
 
         function keyDown(event) {
-          console.log("Key Pressed", event);
+          console.log("Key Pressed", event.key);
+          document.write(event.key);
         }
         // 4. process interaction
 
