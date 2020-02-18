@@ -56,7 +56,14 @@
           <hr />
           <h3 id="underscores">? ? ? ? ?</h3>
           <div>
-            Incorrect Guesses: [ <span id="letterssGuessed">a, b, c</span> ]
+            Incorrect Guesses: [ <span id="lettersGuessed">a, b, c</span> ]
+          </div>
+          <div class="guessesRemaining">
+            You have
+            <script>
+              lives.innerHTML;
+            </script>
+            guesses left!
           </div>
           <div>Wins: <span id="wins">0</span></div>
           <div>Losses: <span id="losses">0</span></div>
@@ -86,8 +93,9 @@
       ></script>
       <script>
         window.alert(
-          "Click START to begin. Then press a key to guess a letter. Good Luck!"
+          "Click START to begin. Then press any key A-Z to guess a letter. Good Luck!"
         );
+        
       </script>
 
       <script>
@@ -99,7 +107,10 @@
           guessed: "You already guessed this letter.",
           invalidLetter: "Not a valid guess."
         };
+        lives = document.getElementById("guessesRemaining");
+
         var validLetter = "abcdefghijklmnopqrstuvwxyz";
+
         // 1. start the game
         $("#startBtn").on("click", start);
 
@@ -123,17 +134,22 @@
           console.log(temp);
           document.getElementById("underscores").innerHTML = temp;
         }
+
         // 3. user interaction
         // --grab user input from keyboard, run evaluation
-        $(document).on("keyup", keyDown);
+        document.onkeyup = function(event) {
+          userText.textContent = event.key;
+        };
 
         function keyDown(event) {
           console.log("Key Pressed", event);
-          // 4. process interaction
         }
+        // 4. process interaction
 
         // 5. handle results
+
         // 6. continue game
+
         // 7. finish game, ask to start again
       </script>
     </div>
