@@ -98,74 +98,91 @@
       </script>
 
       <script type="text/javascript">
-                var words = ["catfish", "salmon", "trout", "worms", "lures", "flies", "stream", "lake", "fish", "minnow", "jig", "bait", "spincaster", "Walleye"];
-                var lives = 5;
-                var messages = {
-                  win: "You Win!!!",
-                  lose: "You Lose. Try Again. Good Luck!",
-                  guessed: "You already guessed this letter.",
-                  invalidLetter: "Not a valid guess."
-                };
-                lives = document.getElementById("guessesRemaining");
+                    var words = ["catfish", "salmon", "trout", "worms", "lures", "flies", "stream", "lake", "fish", "minnow", "jig", "bait", "spincaster", "Walleye"];
+                    var lives = 5;
+                    var messages = {
+                      win: "You Win!!!",
+                      lose: "You Lose. Try Again. Good Luck!",
+                      guessed: "You already guessed this letter.",
+                      invalidLetter: "Not a valid guess."
+                    };
+                    lives = document.getElementById("guessesRemaining");
 
-                var validLetter = "abcdefghijklmnopqrstuvwxyz";
+                    var validLetter = "abcdefghijklmnopqrstuvwxyz";
 
-                // 1. start the game
-                $("#startBtn").on("click", start);
+                    // 1. start the game
+                    $("#startBtn").on("click", start);
 
-                function start() {
+                    function start() {
 
-                  console.log("Game start");
-                  var randWord = mysteryWord(words);
-                  makeUnderscores(randWord);
-                  // 2. set up the game
-                  // -- pick a word
-                  // -- display underscores to screen
-                }
-                // var arr = whatever is passed here! (WORDS)
-                function mysteryWord(arr) {
-                  return arr[Math.floor(Math.random() * arr.length)];
-                }
-                function makeUnderscores(word) {
-                  var temp = [];
-                  for (var i = 0; i < word.length; i++) {
-                    temp.push("_");
-                  }
-                  console.log(temp);
-                  document.getElementById("underscores").innerHTML = temp;
-                }
+                      console.log("Game start");
+                      var randWord = mysteryWord(words);
+                      makeUnderscores(randWord);
+                      // 2. set up the game
+                      // -- pick a word
+                      // -- display underscores to screen
+                    }
+                    // var arr = whatever is passed here! (WORDS)
+                    function mysteryWord(arr) {
+                      return arr[Math.floor(Math.random() * arr.length)];
+                    }
+                    function makeUnderscores(word) {
+                      var temp = [];
+                      for (var i = 0; i < word.length; i++) {
+                        temp.push("_");
+                      }
+                      console.log(temp);
+                      document.getElementById("underscores").innerHTML = temp;
+                    }
 
-                // 3. user interaction
-        // When a key is pressed..
-        document.onkeyup = function(event) {
-          // Check if the key pressed is a letter.
-          if (event.keyCode >= 49 && event.keyCode <= 90) {
-            // Capture pressed key and make it lowercase.
-            wordGuessGame.letterGuessed = event.key.toLowerCase();
-            // Pass the guessed letter into our updatePage function to run the game logic.
-            wordGuessGame.updatePage(wordGuessGame.letterGuessed);
-          }
+        //             // 3. user interaction
+        //     // When a key is pressed..
+        //     document.onkeyup = function(event) {
+        //       // Check if the key pressed is a letter.
+        //       if (event.keyCode >= 49 && event.keyCode <= 90) {
+        //         // Capture pressed key and make it lowercase.
+        //         wordGuessGame.letterGuessed = event.key.toLowerCase();
+        //         // Pass the guessed letter into our updatePage function to run the game logic.
+        //         wordGuessGame.updatePage(wordGuessGame.letterGuessed);
+        //       }
 
-                // --grab user input from keyboard, run evaluation
-
-
-                //   document.onkeyup = function(event){
-
-                //  if (var j = 0; j < arr.length; j++) {
-                //     arr [j] = userGuess;
-                //     temp [j] = userGuess
-                // }
-                // }
+        //             // --grab user input from keyboard, run evaluation
 
 
-                // 4. process interaction
+        //             //   document.onkeyup = function(event){
+
+        //             //  if (var j = 0; j < arr.length; j++) {
+        //             //     arr [j] = userGuess;
+        //             //     temp [j] = userGuess
+        //             // }
+        //             // }
 
 
-                // 5. handle results
+        //             // 4. process interaction
+        //             function rebuildWordView() {
+                      
+                    
+        // // We start with an empty string.
+        // var temp = "";
+        // // Loop through the letters of the word we are trying to guess..
+        // for (var i = 0; i < this.lettersOfTheWord.length; i++) {
+        //   // If the current letter has been guessed, display that letter.
+        //   if (this.matchedLetters.indexOf(this.lettersOfTheWord[i]) !== -1) {
+        //     temp += this.lettersOfTheWord[i];
+        //   }
+        //   // If it hasn't been guessed, display a "_" instead.
+        //   else {
+        //     wordView += "&nbsp;_&nbsp;";
+        //   }
+        // }
+        //             }
+        //     }
 
-                // 6. continue game
+        //             // 5. handle results
 
-                // 7. finish game, ask to start again
+                    // 6. continue game
+
+                    // 7. finish game, ask to start again
       </script>
     </div>
   </body>
