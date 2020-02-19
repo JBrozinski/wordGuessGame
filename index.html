@@ -99,7 +99,7 @@
       </script>
 
       <script>
-        var words = ["catfish", "salmon", "trout", "worms", "lures", "flies", "stream", "lake"];
+        var words = ["catfish", "salmon", "trout", "worms", "lures", "flies", "stream", "lake", "fish", "minnow", "jig", "bait", "spincaster", "Walleye"];
         var lives = 5;
         var messages = {
           win: "You Win!!!",
@@ -115,6 +115,7 @@
         $("#startBtn").on("click", start);
 
         function start() {
+
           console.log("Game start");
           var randWord = mysteryWord(words);
           makeUnderscores(randWord);
@@ -136,14 +137,12 @@
         }
 
         // 3. user interaction
+   
         // --grab user input from keyboard, run evaluation
         
        
 
-        function keyDown(event) {
-          console.log("Key Pressed", event.key);
-          document.write(event.key);
-        }
+      
         // 4. process interaction
 
         // 5. handle results
