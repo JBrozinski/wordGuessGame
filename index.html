@@ -95,68 +95,77 @@
         window.alert(
           "Click START to begin. Then press any key A-Z to guess a letter. Good Luck!"
         );
-        
       </script>
 
       <script type="text/javascript">
-        var words = ["catfish", "salmon", "trout", "worms", "lures", "flies", "stream", "lake", "fish", "minnow", "jig", "bait", "spincaster", "Walleye"];
-        var lives = 5;
-        var messages = {
-          win: "You Win!!!",
-          lose: "You Lose. Try Again. Good Luck!",
-          guessed: "You already guessed this letter.",
-          invalidLetter: "Not a valid guess."
-        };
-        lives = document.getElementById("guessesRemaining");
+                var words = ["catfish", "salmon", "trout", "worms", "lures", "flies", "stream", "lake", "fish", "minnow", "jig", "bait", "spincaster", "Walleye"];
+                var lives = 5;
+                var messages = {
+                  win: "You Win!!!",
+                  lose: "You Lose. Try Again. Good Luck!",
+                  guessed: "You already guessed this letter.",
+                  invalidLetter: "Not a valid guess."
+                };
+                lives = document.getElementById("guessesRemaining");
 
-        var validLetter = "abcdefghijklmnopqrstuvwxyz";
+                var validLetter = "abcdefghijklmnopqrstuvwxyz";
 
-        // 1. start the game
-        $("#startBtn").on("click", start);
+                // 1. start the game
+                $("#startBtn").on("click", start);
 
-        function start() {
+                function start() {
 
-          console.log("Game start");
-          var randWord = mysteryWord(words);
-          makeUnderscores(randWord);
-          // 2. set up the game
-          // -- pick a word
-          // -- display underscores to screen
-        }
-        // var arr = whatever is passed here! (WORDS)
-        function mysteryWord(arr) {
-          return arr[Math.floor(Math.random() * arr.length)];
-        }
-        function makeUnderscores(word) {
-          var temp = [];
-          for (var i = 0; i < word.length; i++) {
-            temp.push("_");
+                  console.log("Game start");
+                  var randWord = mysteryWord(words);
+                  makeUnderscores(randWord);
+                  // 2. set up the game
+                  // -- pick a word
+                  // -- display underscores to screen
+                }
+                // var arr = whatever is passed here! (WORDS)
+                function mysteryWord(arr) {
+                  return arr[Math.floor(Math.random() * arr.length)];
+                }
+                function makeUnderscores(word) {
+                  var temp = [];
+                  for (var i = 0; i < word.length; i++) {
+                    temp.push("_");
+                  }
+                  console.log(temp);
+                  document.getElementById("underscores").innerHTML = temp;
+                }
+
+                // 3. user interaction
+        // When a key is pressed..
+        document.onkeyup = function(event) {
+          // Check if the key pressed is a letter.
+          if (event.keyCode >= 49 && event.keyCode <= 90) {
+            // Capture pressed key and make it lowercase.
+            wordGuessGame.letterGuessed = event.key.toLowerCase();
+            // Pass the guessed letter into our updatePage function to run the game logic.
+            wordGuessGame.updatePage(wordGuessGame.letterGuessed);
           }
-          console.log(temp);
-          document.getElementById("underscores").innerHTML = temp;
-        }
 
-        // 3. user interaction
-   
-        // --grab user input from keyboard, run evaluation
-       
-        
-        //   document.onkeyup = function(event){
+                // --grab user input from keyboard, run evaluation
 
-        //  if (var j = 0; j < arr.length; j++) {
-        //     arr [j] = userGuess;
-        //     temp [j] = userGuess
-        // }
-        // }
 
-      
-        // 4. process interaction
+                //   document.onkeyup = function(event){
 
-        // 5. handle results
+                //  if (var j = 0; j < arr.length; j++) {
+                //     arr [j] = userGuess;
+                //     temp [j] = userGuess
+                // }
+                // }
 
-        // 6. continue game
 
-        // 7. finish game, ask to start again
+                // 4. process interaction
+
+
+                // 5. handle results
+
+                // 6. continue game
+
+                // 7. finish game, ask to start again
       </script>
     </div>
   </body>
